@@ -4,9 +4,9 @@ Este programa Python utiliza el módulo Turtle para crear estrellas regulares co
 ## Funciones
 ### Funciones de inicialización:
 * **choose_number_arms():** Permite al usuario seleccionar el número de puntas para la estrella. Dichas opciones son: 
-- A: 5 puntas 
-- B: 7 puntas 
-- C: 9 puntas
+    - A: 5 puntas 
+    - B: 7 puntas 
+    - C: 9 puntas
 * **choose_length_arms():** Solicita al usuario introducir la longitud deseada para las puntas de la estrella.
 ### Función principal (main):
 Dibuja la estrella con el número y longitud de puntas especificados por el usuario.
