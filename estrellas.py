@@ -1,14 +1,17 @@
 """
-Este programa utiliza el módulo turtle para dibujar estrellas regulares con un número y longitud de puntas a escoger.
+Este programa utiliza el módulo turtle para dibujar estrellas regulares 
+con un número y longitud de puntas a decidir por el usuario.
 
 Funciones:
-- choose_number_arms(): Permite al usuario elegir el número de puntas para la estrella (5, 7 o 9).
+- choose_number_arms(): 
+Permite al usuario elegir la cantidad de puntas para la estrella. Siempre y cuando sean al 
+menos 5 puntas y dicho número sea impar.
 - choose_length_arms(): Solicita al usuario introducir la longitud de las puntas de la estrella.
 - main(): Dibuja la estrella con el número y longitud de puntas especificados.
 
 Instrucciones:
 1. Ejecutar el programa.
-2. Seleccionar el número de puntas y la longitud deseada siguiendo las instrucciones en consola.
+2. Introducir el número de puntas y la longitud deseada siguiendo las instrucciones en consola.
 3. Una vez completada la configuración, la estrella se dibujará utilizando el módulo turtle.
 4. La ventana de turtle se cerrará al hacer clic en ella.
 
@@ -18,29 +21,23 @@ Autor: Álvaro Santamaría Antón
 import turtle
 
 def choose_number_arms():
-    # Función para elegir un número de puntas
-
-    print("""\nElige una opción para tu estrella:
-A - 5 puntas
-B - 7 puntas
-C - 9 puntas""")
+    # Función para determinar el número de puntas
 
     # Solicitar al usuario la entrada
     while True:
-        eleccion_1 = input("\nIntroduce el número de puntas que desees: ").upper()
+        try:
+            eleccion_1 = int(input(
+                "\nIngresa la cantidad de puntas deseada para la estrella. " 
+                "\nRecuerda que debe tener al menos 5 puntas y ser un número impar: "
+            ))
+            
+            if eleccion_1 % 2 == 1 and eleccion_1 >= 5:
+                break
+            else:
+                print("\nPor favor, elige una opción válida (Revisa las instrucciones).")
+        except ValueError:
+            print("\nPor favor, introduce un número entero válido.")
 
-        if eleccion_1 == "A":
-            eleccion_1 = 5
-            break
-        elif eleccion_1 == "B":
-            eleccion_1 = 7
-            break
-        elif eleccion_1 == "C":
-            eleccion_1 = 9
-            break
-        else:
-            print("Por favor, elige una opción válida (Introduce A, B o C).")
-        
     return eleccion_1
 
 
@@ -53,7 +50,7 @@ def choose_length_arms():
             eleccion_2 = float(input("\nIntroduce la longitud de las puntas: "))
             break
         except ValueError:
-            print("Por favor, introduce una longitud válida.")
+            print("\nPor favor, introduce una longitud válida.")
     
     return eleccion_2
 
@@ -62,7 +59,7 @@ def main():
     # Función principal para dibujar la estrella
 
     # Mostrar título por consola
-    titulo = "LAS ESTRELLAS REGULARES"
+    titulo = "ESTRELLAS REGULARES"
     print("\n" + titulo + "\n" + "-" * len(titulo))
 
     # Llamar a las funciones para determinar el número y la longitud de las puntas
